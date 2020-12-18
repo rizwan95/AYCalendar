@@ -94,7 +94,7 @@ class AYMonthCalendarPresenter: NKGridConfigurator {
   func shouldSelectItemAt(indexPath: IndexPath) -> Bool {
     guard Section.days.rawValue == indexPath.section,
       !dates[indexPath.row].isSpecificDay(selectedDate),
-      dates[indexPath.row].isSpecificMonth(date) else { return false }
+      dates[indexPath.row].isSpecificMonth(date), !dates[indexPath.row].isDateInPast else { return false }
     return true
   }
   
